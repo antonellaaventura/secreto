@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antonella</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: #c6000d;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-style: italic;
+    }
+
+    .btn-descubra {
+      position: relative;
+      background-color: #c6000d;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      z-index: 2;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(198, 0, 13, 0.7);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(198, 0, 13, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(198, 0, 13, 0);
+      }
+    }
+
+    .counter {
+      position: absolute;
+      bottom: 20px;
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    /* Popup */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup {
+      background-color: #171717;
+      border: 2px solid #c6000d;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .popup h2 {
+      margin-bottom: 10px;
+    }
+
+    .popup button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #c6000d;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+
+  <!-- Forçar saída do TikTok para navegador externo -->
+  <script>
+    if (navigator.userAgent.includes('TikTok')) {
+      const url = window.location.href;
+      const a = document.createElement('a');
+      a.href = url;
+      a.rel = 'noreferrer';
+      document.body.appendChild(a);
+      a.click();
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Popup de verificação etária -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup" role="dialog" aria-modal="true">
+      <h2>🔞 Acesso Limitado</h2>
+      <p>Conteúdo exclusivo. Entrada apenas para maiores de 18 anos.</p>
+      <button onclick="document.getElementById('popup').style.display='none'">Entrar</button>
+    </div>
+  </div>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>DESCUBRA ANTONELLA</h1>
+    <hr />
+    <p>"Exclusiva. Elegante. Provocante."</p>
+  </header>
+
+  <!-- Botão flutuante -->
+  <button class="btn-descubra" onclick="window.location.href='antonella.html'">Descubra Antonella</button>
+
+  <!-- Contador de compradores -->
+  <div class="counter">
+    Vagas limitadas, <span id="compradores">49</span> compradores satisfeitos
+  </div>
+
+  <script>
+    let count = 49;
+    const span = document.getElementById("compradores");
+    setInterval(() => {
+      count++;
+      span.textContent = count;
+    }, 6000); // A cada 6 segundos, aumenta 1
+  </script>
+
+</body>
+</html>
+
+
